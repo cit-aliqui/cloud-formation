@@ -1,0 +1,91 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: VPC Creation template for Student Project.
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/21
+      InstanceTenancy: default
+      Tags:
+      - Key: Name
+        Value: StudentProj-VPC
+      - Key: Project 
+        Value: studentapp
+
+  StuAppPubAZ1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: "us-west-2a"
+      Tags:
+      - Key: Name
+        Value: StudentProj-Pub-Az1
+      - Key: Project 
+        Value: studentapp
+
+  StuAppPubAZ2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.2.0/24
+      AvailabilityZone: "us-west-2b"
+      Tags:
+      - Key: Name
+        Value: StudentProj-Pub-Az2
+      - Key: Project 
+        Value: studentapp
+
+  StuAppPubAZ3:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.3.0/24
+      AvailabilityZone: "us-west-2c"
+      Tags:
+      - Key: Name
+        Value: StudentProj-Pub-Az3
+      - Key: Project 
+        Value: studentapp
+      
+  StuAppPrivAZ1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.4.0/24
+      AvailabilityZone: "us-west-2a"
+      Tags:
+      - Key: Name
+        Value: StudentProj-Priv-Az1
+      - Key: Project 
+        Value: studentapp
+  
+  StuAppPrivAZ2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.5.0/24
+      AvailabilityZone: "us-west-2b"
+      Tags:
+      - Key: Name
+        Value: StudentProj-Priv-Az2
+      - Key: Project 
+        Value: studentapp
+  
+  StuAppPrivAZ3:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.6.0/24
+      AvailabilityZone: "us-west-2c"
+      Tags:
+      - Key: Name
+        Value: StudentProj-Priv-Az3
+      - Key: Project 
+        Value: studentapp
